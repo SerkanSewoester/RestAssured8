@@ -1,0 +1,44 @@
+Genel kullanılanlar
+equalTo(X) - used to check whether an actual element value is equal to a pre-specified expected element value
+hasItem("value") - used to see whether a collection of elements contains a specific pre-specified item value
+hasSize(3) - used to verify the actual number of elements in a collection
+not(equalTo(X)) - inverts any given matcher that exists in the Hamcrest
+
+Number related assertions
+equalTo – It checks whether the retrieved number from response is equal to the expected number.
+greaterThan – checks extracted number is greater than the expected number.
+greaterThanOrEqualTo – checks whether the extracted number is greater than equal to the expected number.
+lessThan – It checks whether the retrieved number from response is lesser than to the expected number.
+lessThanOrEqualTo – It checks whether the retrieved number from response is lesser than or equal to the expected number.
+
+String related Assertions
+equalTo – It checks whether the extracted string from JSON is equal to the expected string.
+equalToIgnoringCase – It checks whether the extracted string from JSON is equal to the expected string without considering the case (small or capital).
+equalToIgnoringWhiteSpace – It checks whether the extracted string from JSON is equal to the expected string by considering the white spaces.
+containsString – It checks whether the extracted string from JSON contains the expected string as a substring.
+startsWith – It checks whether the extracted string from JSON is starting with a given string or character.
+endsWith – It checks whether the extracted string from JSON is ending with a given string or character.
+
+
+
+Genel Eşleştiriciler (Hamcrest)
+equalTo(X) – Gerçek bir öğe değerinin, önceden belirtilmiş beklenen öğe değeriyle eşit olup olmadığını kontrol etmek için kullanılır.
+hasItem("value") – Bir öğe koleksiyonunun, belirli bir önceden belirtilmiş öğeyi içerip içermediğini kontrol etmek için kullanılır.
+hasSize(3) – Bir koleksiyondaki öğelerin gerçek sayısının, belirtilen sayıya eşit olup olmadığını doğrulamak için kullanılır.
+not(equalTo(X)) – Hamcrest'te var olan herhangi bir eşleştiricinin tersini almak için kullanılır (örneğin: eşit değilse).
+
+Sayı ile İlgili Doğrulamalar
+equalTo – Yanıttan alınan sayının, beklenen sayıya eşit olup olmadığını kontrol eder.
+greaterThan – Alınan sayının, beklenen sayıdan büyük olup olmadığını kontrol eder.
+greaterThanOrEqualTo – Alınan sayının, beklenen sayıdan büyük ya da eşit olup olmadığını kontrol eder.
+lessThan – Alınan sayının, beklenen sayıdan küçük olup olmadığını kontrol eder.
+lessThanOrEqualTo – Alınan sayının, beklenen sayıdan küçük ya da eşit olup olmadığını kontrol eder.
+
+
+String (Metin) ile İlgili Doğrulamalar
+equalTo – JSON’dan çıkarılan string’in, beklenen string’e eşit olup olmadığını kontrol eder.
+equalToIgnoringCase – JSON’dan çıkarılan string’in, büyük/küçük harf farkı gözetmeden beklenen string’e eşit olup olmadığını kontrol eder.
+equalToIgnoringWhiteSpace – JSON’dan çıkarılan string’in, boşluklar dikkate alınarak beklenen string’e eşit olup olmadığını kontrol eder.
+containsString – JSON’dan çıkarılan string’in, beklenen string’i alt string olarak içerip içermediğini kontrol eder.
+startsWith – JSON’dan çıkarılan string’in, belirtilen string ya da karakter ile başlayıp başlamadığını kontrol eder.
+endsWith – JSON’dan çıkarılan string’in, belirtilen string ya da karakter ile bitip bitmediğini kontrol eder.
