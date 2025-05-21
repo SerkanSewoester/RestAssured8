@@ -94,7 +94,6 @@ public class _01_ApiTest {
     public void bodyArrayHasSizeTest() {
         // Soru : "http://api.zippopotam.us/us/90210"  endpoint in dönen
         // places dizisinin dizi uzunluğunun 1 olduğunu doğrulayınız.
-
         given()
                 .when()
                 .get("http://api.zippopotam.us/us/90210")
@@ -103,7 +102,34 @@ public class _01_ApiTest {
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .body("places", hasSize(1))
-                .body("places.'place name'", hasItem("Beverly Hills"));;
+                .body("places.'place name'", hasItem("Beverly Hills"));
+    }
 
+
+    @Test
+    public void pathParamTest(){
+
+        given()
+                .pathParam("ulke","us") // degiskenler hazirlandi
+                .pathParam("pk","90210")
+                .when()
+                .get("http://api.zippopotam.us/{ulke}/{pk}")// yerlerine konuldu
+                .then();
+
+    }
+
+
+
+    @Test
+    public void queryParam(){
+
+        given()
+                .param("page",3)
+                .log().uri()
+                .when()
+                .get("https://gorest.co.in/public/v1/users")
+                .then()
+                .log().body()
+        ;
     }
 }
