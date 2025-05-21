@@ -1,5 +1,3 @@
-
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
@@ -131,5 +129,26 @@ public class _01_ApiTest {
                 .then()
                 .log().body()
         ;
+    }
+
+
+
+    @Test
+    public void pageTest(){
+
+        for (int i = 1; i <=10 ; i++) {
+            given()
+                    .param("page",i)
+                    .log().uri()
+                    .when()
+                    .get("https://gorest.co.in/public/v1/users")
+                    .then()
+                    .body("meta.pagination.page",equalTo(i))
+
+            ;
+        }
+
+
+
     }
 }
