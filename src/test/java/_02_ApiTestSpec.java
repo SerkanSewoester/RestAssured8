@@ -1,7 +1,3 @@
-import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.*;
-
-
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
@@ -9,60 +5,56 @@ import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import static io.restassured.RestAssured.*;
+import static org.hamcrest.Matchers.*;
 
 public class _02_ApiTestSpec {
-    RequestSpecification reqSpac;
+    RequestSpecification reqSpec;
     ResponseSpecification resSpec;
+
     @BeforeClass
-    public void setup(){
-        // gidenBilgiSetPaketi
-         reqSpac = new RequestSpecBuilder()
-                 // istek paketi hazirliklari
-                .setContentType(ContentType.JSON)
-                .log(LogDetail.URI)
+    public void Setup()
+    {
+        reqSpec=new RequestSpecBuilder()   // istek paketi setlenmesi
+                .setContentType(ContentType.JSON)  // giden body cinsi
+                .log(LogDetail.URI)  // log.uri
+                //token
                 .build();
 
-
-        // donenControlPaketi
-         resSpec = new ResponseSpecBuilder()// cevap geldikten sonra yapilacaklar
+        resSpec=new ResponseSpecBuilder()  // cevap geldikten sonraki yapılacaklar
                 .log(LogDetail.BODY)
                 .expectContentType(ContentType.JSON)
                 .build();
     }
 
 
-
     @Test
-    public void Test01() {
+    public void Test1()
+    {
         given()
-                .spec(reqSpac)
+                .spec(reqSpec)  // istek paketi
+
                 .when()
                 .get("https://gorest.co.in/public/v1/users")
-                .then()
-                .spec(resSpec)
 
+                .then()
+                .spec(resSpec)  // dönüş yapılacakları
         ;
     }
 
     @Test
-    public void Test02() {
+    public void Test2()
+    {
         given()
-                .contentType(ContentType.JSON)
-                .log().uri()
-                // token da eklendi
+                .spec(reqSpec) // istek paketi
 
                 .when()
-
-
                 .get("https://gorest.co.in/public/v1/users")
 
-
                 .then()
-                .contentType(ContentType.JSON)
-                .log().body()
+                .spec(resSpec) // dönüş yapılacakları
         ;
     }
+
 }
