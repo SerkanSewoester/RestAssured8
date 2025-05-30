@@ -1,5 +1,6 @@
 import io.restassured.http.ContentType;
-import org.testng.annotations.Test;
+import org.junit.Test;
+
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -172,8 +173,6 @@ public class _01_ApiTest {
                     .body("meta.pagination.page", equalTo(p))
             ;
         }
-
-
     }
 
 }

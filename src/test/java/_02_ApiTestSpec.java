@@ -11,6 +11,7 @@ import static org.hamcrest.Matchers.*;
 
 public class _02_ApiTestSpec {
     RequestSpecification reqSpec;
+
     ResponseSpecification resSpec;
 
     @BeforeClass
